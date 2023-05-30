@@ -1,0 +1,21 @@
+<div *ngIf="!loggedIn">
+  <h2>Iniciar sesión</h2>
+  <form (ngSubmit)="login()">
+    <input type="email" [(ngModel)]="email" placeholder="Correo electrónico" required>
+    <input type="password" [(ngModel)]="password" placeholder="Contraseña" required>
+    <button type="submit">Iniciar sesión</button>
+  </form>
+</div>
+
+<div *ngIf="loggedIn && !nameSaved">
+  <h2>Cuestionario</h2>
+  <form (ngSubmit)="saveName()">
+    <input type="text" [(ngModel)]="name" placeholder="Nombre" required>
+    <button type="submit">Guardar</button>
+  </form>
+</div>
+
+<div *ngIf="loggedIn && nameSaved">
+  <h2>Bienvenido, {{ name }}!</h2>
+</div>
+
